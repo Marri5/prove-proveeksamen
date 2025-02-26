@@ -19,7 +19,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/reindeer', reindeerRoutes);
 
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://10.12.3.111/reindeerDB';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://10.12.3.222/reindeerDB';
 
 mongoose
   .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
