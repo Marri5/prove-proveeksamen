@@ -217,7 +217,7 @@ h1, h2, h3, h4 {
   color: var(--primary-color);
 }
 
-/* Home page */
+
 .home-container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -227,7 +227,7 @@ h1, h2, h3, h4 {
 .hero-section {
   text-align: center;
   padding: 3rem 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/reindeer-hero.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../public/images/reindeer-hero.jpg');
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -271,7 +271,6 @@ h1, h2, h3, h4 {
   color: var(--primary-color);
 }
 
-/* Search container */
 .search-container {
   margin: 2rem 0;
   max-width: 600px;
@@ -302,7 +301,6 @@ h1, h2, h3, h4 {
   font-size: 1rem;
 }
 
-/* Search results */
 .search-results-container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -332,7 +330,6 @@ h1, h2, h3, h4 {
   margin-bottom: 0.5rem;
 }
 
-/* Authentication pages */
 .auth-container {
   display: flex;
   justify-content: center;
@@ -365,7 +362,6 @@ h1, h2, h3, h4 {
   margin-top: 1.5rem;
 }
 
-/* FAQ accordion */
 .faq-container {
   max-width: 800px;
   margin: 0 auto;
@@ -419,7 +415,6 @@ h1, h2, h3, h4 {
   border-top: 1px solid #ddd;
 }
 
-/* Language Map */
 .language-map-container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -582,7 +577,6 @@ h1, h2, h3, h4 {
   transform: translateY(-5px);
 }
 
-/* Reindeer Registration */
 .reindeer-registration-container {
   max-width: 800px;
   margin: 0 auto;
