@@ -64,7 +64,7 @@ const DatabaseInfo = () => {
           <h3>Project Documentation</h3>
           <p>For more detailed information about the database structure and implementation, visit our project page:</p>
           <a
-            href="https://github.com/kukkik-ano/reindeer-registry"
+            href="https://github.com/Marri5/prove-proveeksamen"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
