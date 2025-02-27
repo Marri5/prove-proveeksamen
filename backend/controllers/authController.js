@@ -8,7 +8,6 @@ const asyncHandler = require('../middleware/async');
 exports.register = asyncHandler(async (req, res, next) => {
   const { name, uuid, email, password, contactLanguage, phoneNumber } = req.body;
 
-  // Create owner
   const owner = await Owner.create({
     name,
     uuid,
@@ -27,19 +26,16 @@ exports.register = asyncHandler(async (req, res, next) => {
 exports.login = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
-  // Validate email & password
   if (!email || !password) {
     return next(new ErrorResponse('Please provide an email and password', 400));
   }
 
-  // Check for owner
   const owner = await Owner.findOne({ email }).select('+password');
 
   if (!owner) {
     return next(new ErrorResponse('Invalid credentials', 401));
   }
 
-  // Check if password matches
   const isMatch = await owner.matchPassword(password);
 
   if (!isMatch) {
@@ -76,9 +72,7 @@ exports.getMe = asyncHandler(async (req, res, next) => {
   });
 });
 
-// Get token from model, create cookie and send response
 const sendTokenResponse = (owner, statusCode, res) => {
-  // Create token
   const token = owner.getSignedJwtToken();
 
   const options = {
