@@ -1,5 +1,3 @@
-// src/components/auth/Register.js
-
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
@@ -33,19 +31,16 @@ const Register = () => {
   const [formErrors, setFormErrors] = useState({});
   
   useEffect(() => {
-    // Redirect if already authenticated
     if (isAuthenticated) {
       navigate('/dashboard');
     }
     
-    // Clear any previous errors
     setError(null);
   }, [isAuthenticated, navigate, setError]);
   
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     
-    // Clear specific field error when changing that field
     if (formErrors[e.target.name]) {
       setFormErrors({
         ...formErrors,

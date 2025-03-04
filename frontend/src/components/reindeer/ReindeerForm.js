@@ -1,5 +1,3 @@
-// src/components/reindeer/ReindeerForm.js
-
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReindeerContext from '../../context/ReindeerContext';
@@ -19,7 +17,6 @@ const ReindeerForm = ({ reindeer = null, isEdit = false }) => {
   const [success, setSuccess] = useState(false);
   
   useEffect(() => {
-    // If editing, populate form with reindeer data
     if (isEdit && reindeer) {
       setFormData({
         serialNumber: reindeer.serialNumber || '',
@@ -29,7 +26,6 @@ const ReindeerForm = ({ reindeer = null, isEdit = false }) => {
       });
     }
     
-    // Clear any previous errors
     setError(null);
   }, [isEdit, reindeer, setError]);
   
@@ -47,7 +43,6 @@ const ReindeerForm = ({ reindeer = null, isEdit = false }) => {
         await updateReindeer(reindeer._id, formData);
       } else {
         await addReindeer(formData);
-        // Reset form after successful submission
         setFormData({
           serialNumber: '',
           name: '',
@@ -58,7 +53,6 @@ const ReindeerForm = ({ reindeer = null, isEdit = false }) => {
       
       setSuccess(true);
       
-      // Redirect after editing or stay on page after adding
       if (isEdit) {
         setTimeout(() => {
           navigate('/dashboard');
@@ -92,7 +86,7 @@ const ReindeerForm = ({ reindeer = null, isEdit = false }) => {
             value={formData.serialNumber}
             onChange={onChange}
             required
-            disabled={isEdit} // Serial number shouldn't be edited after creation
+            disabled={isEdit} 
           />
           {isEdit && (
             <p className="form-hint">Serial number cannot be changed after creation.</p>

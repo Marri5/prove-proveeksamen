@@ -4,7 +4,7 @@ const SamiMap = () => {
   return (
     <div className="sami-map">
       <img
-        src="/images/sami_language_map.jpg"
+        src="/public/images/sami_language_map.png"
         alt="Map of Sami language territories"
         className="map-image"
       />

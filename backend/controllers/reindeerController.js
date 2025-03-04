@@ -3,16 +3,10 @@ const Herd = require('../models/Herd');
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
 
-// @desc    Get all reindeers
-// @route   GET /api/v1/reindeers
-// @access  Public
 exports.getReindeers = asyncHandler(async (req, res, next) => {
   res.status(200).json(res.advancedResults);
 });
 
-// @desc    Get single reindeer
-// @route   GET /api/v1/reindeers/:id
-// @access  Public
 exports.getReindeer = asyncHandler(async (req, res, next) => {
   const reindeer = await Reindeer.findById(req.params.id).populate({
     path: 'flokk',
@@ -31,11 +25,8 @@ exports.getReindeer = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Create new reindeer
-// @route   POST /api/v1/reindeers
-// @access  Private
+
 exports.createReindeer = asyncHandler(async (req, res, next) => {
-  // Check if herd belongs to owner
   const herd = await Herd.findById(req.body.flokk);
 
   if (!herd) {
@@ -44,7 +35,6 @@ exports.createReindeer = asyncHandler(async (req, res, next) => {
     );
   }
 
-  // Make sure owner owns herd
   if (herd.owner.toString() !== req.owner.id) {
     return next(
       new ErrorResponse(`Owner ${req.owner.id} is not authorized to add a reindeer to this herd`, 401)
@@ -59,9 +49,6 @@ exports.createReindeer = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Search for reindeers
-// @route   GET /api/v1/reindeers/search
-// @access  Public
 exports.searchReindeers = asyncHandler(async (req, res, next) => {
   const { query } = req.query;
 

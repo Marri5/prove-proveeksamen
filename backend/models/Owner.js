@@ -42,7 +42,6 @@ const OwnerSchema = new mongoose.Schema({
   }
 });
 
-// Encrypt password using bcrypt
 OwnerSchema.pre('save', async function(next) {
   if (!this.isModified('password')) {
     next();
@@ -52,14 +51,12 @@ OwnerSchema.pre('save', async function(next) {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-// Sign JWT and return
 OwnerSchema.methods.getSignedJwtToken = function() {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE
   });
 };
 
-// Match user entered password to hashed password in database
 OwnerSchema.methods.matchPassword = async function(enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };

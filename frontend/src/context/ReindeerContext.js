@@ -24,7 +24,6 @@ export const ReindeerProvider = ({ children }) => {
     }
   }, [isAuthenticated]);
   
-  // Fetch all reindeers for the authenticated user
   const fetchReindeers = async () => {
     try {
       setLoading(true);
@@ -39,7 +38,6 @@ export const ReindeerProvider = ({ children }) => {
     }
   };
   
-  // Fetch all herds for the authenticated user
   const fetchHerds = async () => {
     try {
       const res = await api.get('/api/v1/herds');
@@ -51,7 +49,6 @@ export const ReindeerProvider = ({ children }) => {
     }
   };
   
-  // Add a new reindeer
   const addReindeer = async (reindeerData) => {
     try {
       setLoading(true);
@@ -68,7 +65,6 @@ export const ReindeerProvider = ({ children }) => {
     }
   };
   
-  // Update a reindeer
   const updateReindeer = async (id, reindeerData) => {
     try {
       setLoading(true);
@@ -89,7 +85,6 @@ export const ReindeerProvider = ({ children }) => {
     }
   };
   
-  // Delete a reindeer
   const deleteReindeer = async (id) => {
     try {
       setLoading(true);
@@ -105,7 +100,6 @@ export const ReindeerProvider = ({ children }) => {
     }
   };
   
-  // Add a new herd
   const addHerd = async (herdData) => {
     try {
       setLoading(true);
@@ -122,7 +116,6 @@ export const ReindeerProvider = ({ children }) => {
     }
   };
   
-  // Get a single reindeer by ID
   const getReindeer = async (id) => {
     try {
       setLoading(true);
@@ -138,7 +131,6 @@ export const ReindeerProvider = ({ children }) => {
     }
   };
   
-  // Search reindeers
   const searchReindeers = async (query) => {
     try {
       setLoading(true);

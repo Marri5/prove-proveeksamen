@@ -12,13 +12,11 @@ const Login = () => {
   const { login, isAuthenticated, error, setError } = useContext(AuthContext);
   const navigate = useNavigate();
   
-  // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated) {
       navigate('/dashboard');
     }
     
-    // Clear errors when component mounts
     setError(null);
   }, [isAuthenticated, navigate, setError]);
   

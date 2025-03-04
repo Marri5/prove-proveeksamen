@@ -15,12 +15,10 @@ const Login = () => {
   const [submitting, setSubmitting] = useState(false);
   
   useEffect(() => {
-    // Redirect if already authenticated
     if (isAuthenticated) {
       navigate('/dashboard');
     }
     
-    // Clear any previous errors
     setError(null);
   }, [isAuthenticated, navigate, setError]);
   

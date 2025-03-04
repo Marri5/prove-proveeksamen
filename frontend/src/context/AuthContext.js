@@ -9,7 +9,6 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Load user on initial render if token exists
   useEffect(() => {
     const loadUser = async () => {
       try {
@@ -39,7 +38,6 @@ export const AuthProvider = ({ children }) => {
     loadUser();
   }, []);
 
-  // Register user
   const register = async (formData) => {
     try {
       setLoading(true);
@@ -66,7 +64,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Login user
   const login = async (email, password) => {
     try {
       setLoading(true);
@@ -93,7 +90,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Logout user
   const logout = async () => {
     try {
       await api.get('/api/v1/auth/logout');

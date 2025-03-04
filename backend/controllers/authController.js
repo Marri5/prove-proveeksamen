@@ -2,9 +2,6 @@ const Owner = require('../models/Owner');
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
 
-// @desc    Register owner
-// @route   POST /api/v1/auth/register
-// @access  Public
 exports.register = asyncHandler(async (req, res, next) => {
   const { name, uuid, email, password, contactLanguage, phoneNumber } = req.body;
 
@@ -20,9 +17,6 @@ exports.register = asyncHandler(async (req, res, next) => {
   sendTokenResponse(owner, 200, res);
 });
 
-// @desc    Login owner
-// @route   POST /api/v1/auth/login
-// @access  Public
 exports.login = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
@@ -45,9 +39,6 @@ exports.login = asyncHandler(async (req, res, next) => {
   sendTokenResponse(owner, 200, res);
 });
 
-// @desc    Log owner out / clear cookie
-// @route   GET /api/v1/auth/logout
-// @access  Private
 exports.logout = asyncHandler(async (req, res, next) => {
   res.cookie('token', 'none', {
     expires: new Date(Date.now() + 10 * 1000),
@@ -60,9 +51,6 @@ exports.logout = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Get current logged in owner
-// @route   GET /api/v1/auth/me
-// @access  Private
 exports.getMe = asyncHandler(async (req, res, next) => {
   const owner = await Owner.findById(req.owner.id);
 

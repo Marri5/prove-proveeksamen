@@ -75,7 +75,6 @@ const ReindeerRegistration = () => {
       
       {success && (
         <div className="alert alert-success">
-          Reindeer successfully registered!
         </div>
       )}
       
